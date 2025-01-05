@@ -1,0 +1,31 @@
+apiVersion: rke-machine-config.cattle.io/v1
+kind: HarvesterConfig
+metadata:
+  name: worker-node
+  namespace: fleet-default
+kubeconfigContent: ""
+memorySize: "4"
+cloudConfig: ""
+clusterId: ""
+clusterType: ""
+cpuCount: "2"
+diskBus: ""
+diskInfo: '{"disks":[{"imageName":"default/image-2l8kt","bootOrder":1,"size":40}]}'
+diskSize: "0"
+enableEfi: false
+enableSecureBoot: false
+imageName: ""
+keyPairName: ""
+networkData: ""
+networkInfo: '{"interfaces":[{"networkName":"default/mgmt-untagged","macAddress":""}]}'
+networkModel: ""
+networkName: ""
+networkType: ""
+sshPassword: ""
+sshPort: "22"
+sshPrivateKeyPath: ""
+sshUser: alex
+userData: I2Nsb3VkLWNvbmZpZwpwYWNrYWdlX3VwZGF0ZTogdHJ1ZQpwYWNrYWdlczoKICAtIHFlbXUtZ3Vlc3QtYWdlbnQKcnVuY21kOgogIC0gLSBzeXN0ZW1jdGwKICAgIC0gZW5hYmxlCiAgICAtICctLW5vdycKICAgIC0gcWVtdS1ndWVzdC1hZ2VudC5zZXJ2aWNlCg==
+vgpuInfo: ""
+vmAffinity: ""
+vmNamespace: default

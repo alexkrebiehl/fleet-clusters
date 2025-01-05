@@ -317,11 +317,11 @@ spec:
         controlPlaneRole: true
         workerRole: true
         hostnamePrefix: ""
-        quantity: 1
+        quantity: 2
         unhealthyNodeTimeout: 0m
         machineConfigRef:
           kind: HarvesterConfig
-          name: nc-cluster1-pool1-l7vhw
+          name: worker-node
         drainBeforeDelete: true
         labels: {}
     #      - cloudCredentialSecretName: string
