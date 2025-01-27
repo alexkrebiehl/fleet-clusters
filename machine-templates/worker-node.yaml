@@ -25,7 +25,6 @@ sshPassword: "test1234"
 sshPort: "22"
 sshPrivateKeyPath: ""
 sshUser: alex
-userData: I2Nsb3VkLWNvbmZpZwpwYWNrYWdlX3VwZGF0ZTogdHJ1ZQpwYWNrYWdlczoKICAtIHFlbXUtZ3Vlc3QtYWdlbnQKcnVuY21kOgogIC0gLSBzeXN0ZW1jdGwKICAgIC0gZW5hYmxlCiAgICAtICctLW5vdycKICAgIC0gcWVtdS1ndWVzdC1hZ2VudC5zZXJ2aWNlCg==
 vgpuInfo: ""
 vmAffinity: ""
 vmNamespace: default
