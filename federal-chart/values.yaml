@@ -16,8 +16,8 @@ rancher:
 cluster:
   # annotations:
   # key: value
-  # labels:
-  # key: value
+  labels:
+    test-label: a-value
   name: rke2-cluster-harvester
   config:
     kubernetesVersion: v1.30.8+rke2r1 # https://github.com/rancher/rke2/releases
