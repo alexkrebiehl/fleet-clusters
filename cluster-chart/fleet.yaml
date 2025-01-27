@@ -1,6 +1,6 @@
 defaultNamespace: cert-manager
 helm:
-  chart: git::http://github.com/rancher/cluster-template-examples//chart
+  chart: git::http://github.com/rancher/cluster-template-examples//charts
   # releaseName: cert-manager
   valuesFiles:
     - values.yaml
