@@ -16,9 +16,9 @@ cloudCredentialSecretName: cc-z6lwc # required
 cluster:
   # annotations:
   # key: value
-  # labels:
-  #   test-label: a-value
-  #   environment: test
+  labels:
+    test-label: a-value
+    environment: test
   name: rke2-cluster-harvester2
   config:
     kubernetesVersion: v1.30.8+rke2r1 # https://github.com/rancher/rke2/releases
