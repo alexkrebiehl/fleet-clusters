@@ -9,7 +9,7 @@ cluster:
   # specify cluster annotations
   annotations: {}
 
-kubernetesVersion: ""
+kubernetesVersion: "v1.31.3+rke2r1"
 
 # general RKE options
 rke:
