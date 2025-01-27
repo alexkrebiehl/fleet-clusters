@@ -21,7 +21,7 @@ networkInfo: '{"interfaces":[{"networkName":"default/mgmt-untagged","macAddress"
 networkModel: ""
 networkName: ""
 networkType: ""
-sshPassword: ""
+sshPassword: "test1234"
 sshPort: "22"
 sshPrivateKeyPath: ""
 sshUser: alex
