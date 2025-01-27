@@ -5,7 +5,7 @@
 cloudprovider: harvester # required
 
 # cloud provider credentials (example: aws-creds)
-cloudCredentialSecretName: cattle-global-data:cc-nsblf # required
+cloudCredentialSecretName: cc-nsblf # required
 
 # rancher manager url
 rancher:
