@@ -1,179 +1,179 @@
-apiVersion: provisioning.cattle.io/v1
-kind: Cluster
-metadata:
-  name: cluster1
-  annotations:
-    {}
-    #  key: string
-  labels:
-    {}
-    #  key: string
-  namespace: fleet-default
-spec:
-  cloudCredentialSecretName: cattle-global-data:cc-nsblf
-  kubernetesVersion: v1.31.3+rke2r1
-  localClusterAuthEndpoint: {}
-  rkeConfig:
-    chartValues:
-      harvester-cloud-provider:
-        cloudConfigPath: /var/lib/rancher/rke2/etc/config-files/cloud-provider-config
-        global:
-          cattle:
-            clusterName: cluster1
-      rke2-calico: {}
-    dataDirectories: {}
-    etcd:
-      snapshotRetention: 5
-      snapshotScheduleCron: 0 */5 * * *
-    machineGlobalConfig:
-      cni: calico
-      disable-kube-proxy: false
-      etcd-expose-metrics: false
-    machinePoolDefaults: {}
-    machinePools:
-      - controlPlaneRole: true
-        drainBeforeDelete: true
-        dynamicSchemaSpec: >-
-          {"resourceFields":{"cloudConfig":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"just
-          keep it empty, this value will be filled by
-          rancher-machine"},"clusterId":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
-          cluster
-          id"},"clusterType":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
-          cluster
-          type"},"cpuCount":{"type":"string","default":{"stringValue":"2","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"number
-          of CPUs for
-          machine"},"diskBus":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"bus
-          of disk for
-          machine"},"diskInfo":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
-          disk
-          info"},"diskSize":{"type":"string","default":{"stringValue":"0","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"size
-          of disk for machine (in
-          GiB)"},"enableEfi":{"type":"boolean","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"enable
-          vm
-          efi"},"enableSecureBoot":{"type":"boolean","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"enable
-          vm secure boot, only works when enable
-          efi"},"imageName":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
-          image
-          name"},"keyPairName":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
-          key pair
-          name"},"kubeconfigContent":{"type":"password","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"contents
-          of kubeconfig file for harvester cluster, base64 is
-          supported"},"memorySize":{"type":"string","default":{"stringValue":"4","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"size
-          of memory for machine (in
-          GiB)"},"networkData":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"networkData
-          content of cloud-init for machine, base64 is
-          supported"},"networkInfo":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
-          network
-          info"},"networkModel":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
-          network
-          model"},"networkName":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
-          network
-          name"},"networkType":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
-          network
-          type"},"sshPassword":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"SSH
-          password"},"sshPort":{"type":"string","default":{"stringValue":"22","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"SSH
-          port"},"sshPrivateKeyPath":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"SSH
-          private key path
-          "},"sshUser":{"type":"string","default":{"stringValue":"root","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"SSH
-          username"},"userData":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"userData
-          content of cloud-init for machine, base64 is
-          supported"},"vgpuInfo":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester-vgpu-info"},"vmAffinity":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
-          vm affinity, base64 is
-          supported"},"vmNamespace":{"type":"string","default":{"stringValue":"default","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
-          vm namespace"}}}
-        etcdRole: true
-        machineConfigRef:
-          kind: HarvesterConfig
-          name: worker-node
-        name: master
-        quantity: 1
-        unhealthyNodeTimeout: 0s
-      - drainBeforeDelete: true
-        dynamicSchemaSpec: >-
-          {"resourceFields":{"cloudConfig":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"just
-          keep it empty, this value will be filled by
-          rancher-machine"},"clusterId":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
-          cluster
-          id"},"clusterType":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
-          cluster
-          type"},"cpuCount":{"type":"string","default":{"stringValue":"2","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"number
-          of CPUs for
-          machine"},"diskBus":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"bus
-          of disk for
-          machine"},"diskInfo":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
-          disk
-          info"},"diskSize":{"type":"string","default":{"stringValue":"0","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"size
-          of disk for machine (in
-          GiB)"},"enableEfi":{"type":"boolean","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"enable
-          vm
-          efi"},"enableSecureBoot":{"type":"boolean","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"enable
-          vm secure boot, only works when enable
-          efi"},"imageName":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
-          image
-          name"},"keyPairName":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
-          key pair
-          name"},"kubeconfigContent":{"type":"password","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"contents
-          of kubeconfig file for harvester cluster, base64 is
-          supported"},"memorySize":{"type":"string","default":{"stringValue":"4","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"size
-          of memory for machine (in
-          GiB)"},"networkData":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"networkData
-          content of cloud-init for machine, base64 is
-          supported"},"networkInfo":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
-          network
-          info"},"networkModel":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
-          network
-          model"},"networkName":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
-          network
-          name"},"networkType":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
-          network
-          type"},"sshPassword":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"SSH
-          password"},"sshPort":{"type":"string","default":{"stringValue":"22","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"SSH
-          port"},"sshPrivateKeyPath":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"SSH
-          private key path
-          "},"sshUser":{"type":"string","default":{"stringValue":"root","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"SSH
-          username"},"userData":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"userData
-          content of cloud-init for machine, base64 is
-          supported"},"vgpuInfo":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester-vgpu-info"},"vmAffinity":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
-          vm affinity, base64 is
-          supported"},"vmNamespace":{"type":"string","default":{"stringValue":"default","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
-          vm namespace"}}}
-        machineConfigRef:
-          kind: HarvesterConfig
-          name: worker-node
-        name: worker
-        quantity: 3
-        unhealthyNodeTimeout: 0s
-        workerRole: true
-    machineSelectorConfig:
-      - config:
-          cloud-provider-config: secret://fleet-default:harvesterconfigztq9t
-          cloud-provider-name: harvester
-          protect-kernel-defaults: false
-    registries: {}
-    upgradeStrategy:
-      controlPlaneConcurrency: "1"
-      controlPlaneDrainOptions:
-        deleteEmptyDirData: true
-        disableEviction: false
-        enabled: false
-        force: false
-        gracePeriod: -1
-        ignoreDaemonSets: true
-        ignoreErrors: false
-        postDrainHooks: null
-        preDrainHooks: null
-        skipWaitForDeleteTimeoutSeconds: 0
-        timeout: 120
-      workerConcurrency: "1"
-      workerDrainOptions:
-        deleteEmptyDirData: true
-        disableEviction: false
-        enabled: false
-        force: false
-        gracePeriod: -1
-        ignoreDaemonSets: true
-        ignoreErrors: false
-        postDrainHooks: null
-        preDrainHooks: null
-        skipWaitForDeleteTimeoutSeconds: 0
-        timeout: 120
+# apiVersion: provisioning.cattle.io/v1
+# kind: Cluster
+# metadata:
+#   name: cluster1
+#   annotations:
+#     {}
+#     #  key: string
+#   labels:
+#     {}
+#     #  key: string
+#   namespace: fleet-default
+# spec:
+#   cloudCredentialSecretName: cattle-global-data:cc-nsblf
+#   kubernetesVersion: v1.31.3+rke2r1
+#   localClusterAuthEndpoint: {}
+#   rkeConfig:
+#     chartValues:
+#       harvester-cloud-provider:
+#         cloudConfigPath: /var/lib/rancher/rke2/etc/config-files/cloud-provider-config
+#         global:
+#           cattle:
+#             clusterName: cluster1
+#       rke2-calico: {}
+#     dataDirectories: {}
+#     etcd:
+#       snapshotRetention: 5
+#       snapshotScheduleCron: 0 */5 * * *
+#     machineGlobalConfig:
+#       cni: calico
+#       disable-kube-proxy: false
+#       etcd-expose-metrics: false
+#     machinePoolDefaults: {}
+#     machinePools:
+#       - controlPlaneRole: true
+#         drainBeforeDelete: true
+#         dynamicSchemaSpec: >-
+#           {"resourceFields":{"cloudConfig":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"just
+#           keep it empty, this value will be filled by
+#           rancher-machine"},"clusterId":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
+#           cluster
+#           id"},"clusterType":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
+#           cluster
+#           type"},"cpuCount":{"type":"string","default":{"stringValue":"2","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"number
+#           of CPUs for
+#           machine"},"diskBus":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"bus
+#           of disk for
+#           machine"},"diskInfo":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
+#           disk
+#           info"},"diskSize":{"type":"string","default":{"stringValue":"0","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"size
+#           of disk for machine (in
+#           GiB)"},"enableEfi":{"type":"boolean","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"enable
+#           vm
+#           efi"},"enableSecureBoot":{"type":"boolean","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"enable
+#           vm secure boot, only works when enable
+#           efi"},"imageName":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
+#           image
+#           name"},"keyPairName":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
+#           key pair
+#           name"},"kubeconfigContent":{"type":"password","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"contents
+#           of kubeconfig file for harvester cluster, base64 is
+#           supported"},"memorySize":{"type":"string","default":{"stringValue":"4","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"size
+#           of memory for machine (in
+#           GiB)"},"networkData":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"networkData
+#           content of cloud-init for machine, base64 is
+#           supported"},"networkInfo":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
+#           network
+#           info"},"networkModel":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
+#           network
+#           model"},"networkName":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
+#           network
+#           name"},"networkType":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
+#           network
+#           type"},"sshPassword":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"SSH
+#           password"},"sshPort":{"type":"string","default":{"stringValue":"22","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"SSH
+#           port"},"sshPrivateKeyPath":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"SSH
+#           private key path
+#           "},"sshUser":{"type":"string","default":{"stringValue":"root","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"SSH
+#           username"},"userData":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"userData
+#           content of cloud-init for machine, base64 is
+#           supported"},"vgpuInfo":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester-vgpu-info"},"vmAffinity":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
+#           vm affinity, base64 is
+#           supported"},"vmNamespace":{"type":"string","default":{"stringValue":"default","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
+#           vm namespace"}}}
+#         etcdRole: true
+#         machineConfigRef:
+#           kind: HarvesterConfig
+#           name: worker-node
+#         name: master
+#         quantity: 1
+#         unhealthyNodeTimeout: 0s
+#       - drainBeforeDelete: true
+#         dynamicSchemaSpec: >-
+#           {"resourceFields":{"cloudConfig":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"just
+#           keep it empty, this value will be filled by
+#           rancher-machine"},"clusterId":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
+#           cluster
+#           id"},"clusterType":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
+#           cluster
+#           type"},"cpuCount":{"type":"string","default":{"stringValue":"2","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"number
+#           of CPUs for
+#           machine"},"diskBus":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"bus
+#           of disk for
+#           machine"},"diskInfo":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
+#           disk
+#           info"},"diskSize":{"type":"string","default":{"stringValue":"0","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"size
+#           of disk for machine (in
+#           GiB)"},"enableEfi":{"type":"boolean","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"enable
+#           vm
+#           efi"},"enableSecureBoot":{"type":"boolean","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"enable
+#           vm secure boot, only works when enable
+#           efi"},"imageName":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
+#           image
+#           name"},"keyPairName":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
+#           key pair
+#           name"},"kubeconfigContent":{"type":"password","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"contents
+#           of kubeconfig file for harvester cluster, base64 is
+#           supported"},"memorySize":{"type":"string","default":{"stringValue":"4","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"size
+#           of memory for machine (in
+#           GiB)"},"networkData":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"networkData
+#           content of cloud-init for machine, base64 is
+#           supported"},"networkInfo":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
+#           network
+#           info"},"networkModel":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
+#           network
+#           model"},"networkName":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
+#           network
+#           name"},"networkType":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
+#           network
+#           type"},"sshPassword":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"SSH
+#           password"},"sshPort":{"type":"string","default":{"stringValue":"22","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"SSH
+#           port"},"sshPrivateKeyPath":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"SSH
+#           private key path
+#           "},"sshUser":{"type":"string","default":{"stringValue":"root","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"SSH
+#           username"},"userData":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"userData
+#           content of cloud-init for machine, base64 is
+#           supported"},"vgpuInfo":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester-vgpu-info"},"vmAffinity":{"type":"string","default":{"stringValue":"","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
+#           vm affinity, base64 is
+#           supported"},"vmNamespace":{"type":"string","default":{"stringValue":"default","intValue":0,"boolValue":false,"stringSliceValue":null},"create":true,"update":true,"description":"harvester
+#           vm namespace"}}}
+#         machineConfigRef:
+#           kind: HarvesterConfig
+#           name: worker-node
+#         name: worker
+#         quantity: 3
+#         unhealthyNodeTimeout: 0s
+#         workerRole: true
+#     machineSelectorConfig:
+#       - config:
+#           cloud-provider-config: secret://fleet-default:harvesterconfigztq9t
+#           cloud-provider-name: harvester
+#           protect-kernel-defaults: false
+#     registries: {}
+#     upgradeStrategy:
+#       controlPlaneConcurrency: "1"
+#       controlPlaneDrainOptions:
+#         deleteEmptyDirData: true
+#         disableEviction: false
+#         enabled: false
+#         force: false
+#         gracePeriod: -1
+#         ignoreDaemonSets: true
+#         ignoreErrors: false
+#         postDrainHooks: null
+#         preDrainHooks: null
+#         skipWaitForDeleteTimeoutSeconds: 0
+#         timeout: 120
+#       workerConcurrency: "1"
+#       workerDrainOptions:
+#         deleteEmptyDirData: true
+#         disableEviction: false
+#         enabled: false
+#         force: false
+#         gracePeriod: -1
+#         ignoreDaemonSets: true
+#         ignoreErrors: false
+#         postDrainHooks: null
+#         preDrainHooks: null
+#         skipWaitForDeleteTimeoutSeconds: 0
+#         timeout: 120
