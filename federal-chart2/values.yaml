@@ -5,7 +5,7 @@
 cloudprovider: harvester # required
 
 # cloud provider credentials (example: aws-creds)
-cloudCredentialSecretName: cc-z6lwc # required
+cloudCredentialSecretName: cc-4kshf # required
 
 # rancher manager url
 # rancher:
