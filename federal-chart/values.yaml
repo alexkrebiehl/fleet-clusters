@@ -155,7 +155,7 @@ nodepools:
     diskSize: 40 # required (example: 64)
     imageName: default/image-2l8kt # required (example: default/image-abcdefg)
     # keyPairName: ''
-    memorySize: 4 # required (example: 8)
+    memorySize: 6 # required (example: 8)
     # networkInfo: ''
     # networkModel: virtio
     networkName: default/mgmt-untagged # required (example: default/default)
@@ -207,7 +207,7 @@ nodepools:
     diskSize: 40 # required (example: 64)
     imageName: default/image-2l8kt # required (example: default/image-abcdefg)
     # keyPairName: ''
-    memorySize: 4 # required (example: 8)
+    memorySize: 6 # required (example: 8)
     # networkInfo: ''
     # networkModel: virtio
     networkName: default/mgmt-untagged # required (example: default/default)
