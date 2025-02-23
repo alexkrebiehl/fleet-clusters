@@ -1,0 +1,1 @@
+When adding new clusters, be sure to add the cluster name to the ESO secret annotation so it will be synced to the downstream cluster: `fleet-default/eso-azure-secret-sp`

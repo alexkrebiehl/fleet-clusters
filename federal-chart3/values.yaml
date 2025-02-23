@@ -19,7 +19,7 @@ cluster:
   labels:
     test-label: a-value
     environment: test
-  name: rke2-cluster-harvester2
+  name: rke2-cluster-harvester3
   config:
     kubernetesVersion: v1.30.8+rke2r1 # https://github.com/rancher/rke2/releases
     enableNetworkPolicy: true
