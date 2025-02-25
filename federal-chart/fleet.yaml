@@ -1,8 +1,8 @@
-defaultNamespace: cert-manager
-helm:
-  repo: https://rancherfederal.github.io/rancher-cluster-templates
-  version: 0.6.1
-  chart: rancher-cluster-templates
-  # releaseName: cert-manager
-  valuesFiles:
-    - values.yaml
+# defaultNamespace: cert-manager
+# helm:
+#   repo: https://rancherfederal.github.io/rancher-cluster-templates
+#   version: 0.6.1
+#   chart: rancher-cluster-templates
+#   # releaseName: cert-manager
+#   valuesFiles:
+#     - values.yaml
